@@ -1,0 +1,44 @@
+[
+    {
+        "op": "add",
+        "path": "/spec/template/spec/containers/0/env/-",
+        "value": { "name": "RABBITMQ_HOST", "value": "local-rabbitmq-rabbitmq-client"}
+    },
+    {
+        "op": "add",
+        "path": "/spec/template/spec/containers/0/env/-",
+        "value": { "name": "RABBITMQ_PORT", "value": "5672"}
+    },
+    {
+        "op": "add",
+        "path": "/spec/template/spec/containers/0/env/-",
+        "value": { "name": "RABBITMQ_API_PORT", "value": "15672"}
+    },
+    {
+        "op": "add",
+        "path": "/spec/template/spec/containers/0/env/-",
+        "value": {
+            "name": "RABBITMQ_USERNAME",
+            "valueFrom": {
+                "secretKeyRef": {
+                    "key": "username",
+                    "name": "local-rabbitmq-rabbitmq-admin"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/spec/template/spec/containers/0/env/-",
+        "value": {
+            "name": "RABBITMQ_PASSWORD",
+            "valueFrom": {
+                "secretKeyRef": {
+                    "key": "password",
+                    "name": "local-rabbitmq-rabbitmq-admin"
+                }
+            }
+        } 
+    }
+]
+

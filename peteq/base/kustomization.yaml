@@ -1,0 +1,8 @@
+resources:
+- mapping.yaml
+- peteq-api.yaml
+- peteq-ui.yaml
+- configmap.yaml
+- secret.yaml
+- namespace.yaml
+- ingress.yaml

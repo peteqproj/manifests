@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: http-ingress
+  annotations:
+    kubernetes.io/ingress.class: ambassador
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /q
+        backend:
+          serviceName: peteq-api
+          servicePort: 80
+      - path: /c
+        backend:
+          serviceName: peteq-api 
+          servicePort: 80     
+      - path: /
+        pathType: Prefix
+        backend:
+          serviceName: peteq-ui 
+          servicePort: 80

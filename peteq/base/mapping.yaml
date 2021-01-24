@@ -1,0 +1,39 @@
+---
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: peteq-api-query
+spec:
+  prefix: /q/.*
+  rewrite: ""
+  prefix_regex: true
+  service: peteq-api
+---
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: peteq-api
+spec:
+  prefix: /api/.*
+  rewrite: ""
+  prefix_regex: true
+  service: peteq-api
+
+---
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: peteq-api-command
+spec:
+  prefix: /c/.*
+  rewrite: ""
+  prefix_regex: true
+  service: peteq-api
+---
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: peteq-ui
+spec:
+  prefix: /
+  service: peteq-ui
