@@ -13,5 +13,7 @@ spec:
     repoURL: https://github.com/peteqproj/manifests
     targetRevision: HEAD
   syncPolicy:
+    automated:
+      selfHeal: true
     syncOptions:
     - CreateNamespace=true
