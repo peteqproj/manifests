@@ -4,5 +4,4 @@ resources:
 - peteq-ui.yaml
 - configmap.yaml
 - secret.yaml
-- namespace.yaml
 - ingress.yaml
