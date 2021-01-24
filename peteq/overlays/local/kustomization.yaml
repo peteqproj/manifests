@@ -16,32 +16,32 @@ configMapGenerator:
   envs:
   - env
 patches:
-  - path: patch-mapping-api.json
+  - path: patch-mapping-api.yaml
     target:
       group: getambassador.io
       kind: Mapping
       version: v2
       name: peteq-api
-  - path: patch-mapping-api.json
+  - path: patch-mapping-api.yaml
     target:
       group: getambassador.io
       kind: Mapping
       version: v2
       name: peteq-api-query
-  - path: patch-mapping-api.json
+  - path: patch-mapping-api.yaml
     target:
       group: getambassador.io
       kind: Mapping
       version: v2
       name: peteq-api-command
-  - path: patch-mapping-ui.json
+  - path: patch-mapping-ui.yaml
     target:
       group: getambassador.io
       kind: Mapping
       version: v2
       name: peteq-ui
 patchesJson6902:
-  - path: patch-rabbitmq-envs.json
+  - path: patch-rabbitmq-envs.yaml
     target:
       group: apps
       version: v1
