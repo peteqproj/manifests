@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: peteq-local
+  name: peteq-app
   namespace: argocd
 spec:
   destination:
-    namespace: local-peteq-app
+    namespace: peteq-app
     server: https://kubernetes.default.svc
   project: default
   source:
@@ -14,6 +14,7 @@ spec:
     targetRevision: HEAD
   syncPolicy:
     automated:
+      prune: true
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
