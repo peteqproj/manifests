@@ -27,6 +27,9 @@ spec:
       containers:
       - name: peteq-api
         imagePullPolicy: Always
+        args:
+          - "start"
+          - "server"
         image: peteqproj/peteq 
         env:
         - name: EVENTBUS_TYPE
