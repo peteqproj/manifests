@@ -36,7 +36,7 @@ patches:
     patch: |
       - op: replace
         path: "/spec/service"
-        value: local-peteq-api
+        value: local-peteq-command-service
   - path: patch-mapping-ui.yaml
     target:
       group: getambassador.io
