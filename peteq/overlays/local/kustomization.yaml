@@ -28,12 +28,15 @@ patches:
       kind: Mapping
       version: v2
       name: peteq-api-query
-  - path: patch-mapping-api.yaml
-    target:
+  - target:
       group: getambassador.io
       kind: Mapping
       version: v2
       name: peteq-api-command
+    patch: |
+      - op: replace
+        path: "/spec/service"
+        value: local-peteq-api
   - path: patch-mapping-ui.yaml
     target:
       group: getambassador.io
