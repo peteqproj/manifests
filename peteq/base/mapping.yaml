@@ -28,7 +28,7 @@ spec:
   prefix: /c/.*
   rewrite: ""
   prefix_regex: true
-  service: peteq-api
+  service: peteq-command-service
 ---
 apiVersion: getambassador.io/v2
 kind: Mapping
