@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: peteq-rest-api-service
+spec:
+  selector:
+    app: peteq-rest-api-service
+  ports:
+  - port: 80 
+    name: web
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: peteq-rest-api-service
+spec:
+  selector:
+    matchLabels:
+      app: peteq-rest-api-service
+  template:
+    metadata:
+      labels:
+        app: peteq-rest-api-service
+    spec:
+      volumes: []
+      containers:
+      - name: peteq-rest-api-service
+        imagePullPolicy: Always
+        args:
+          - "start"
+          - "rest-api-service"
+        image: peteqproj/peteq 
+        env:
+        - name: EVENTBUS_TYPE
+          valueFrom:
+            configMapKeyRef:
+              key: eventbus_type
+              name: configmap
+        - name: COMMANDBUS_TYPE
+          valueFrom:
+            configMapKeyRef:
+              key: commandbus_type 
+              name: configmap
+        - name: PORT
+          value: "8080"
+        - name: POSTGRES_URL
+          valueFrom:
+            configMapKeyRef:
+              key: postgres_url
+              name: configmap
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        volumeMounts: []
+        ports:
+        - containerPort: 8080

@@ -7,7 +7,7 @@ spec:
   prefix: /q/.*
   rewrite: ""
   prefix_regex: true
-  service: peteq-api
+  service: peteq-query-service
 ---
 apiVersion: getambassador.io/v2
 kind: Mapping
@@ -17,7 +17,7 @@ spec:
   prefix: /api/.*
   rewrite: ""
   prefix_regex: true
-  service: peteq-api
+  service: peteq-rest-api-service
 
 ---
 apiVersion: getambassador.io/v2

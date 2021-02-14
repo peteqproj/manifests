@@ -1,8 +1,10 @@
 resources:
 - mapping.yaml
-- peteq-api.yaml
 - peteq-ui.yaml
 - configmap.yaml
 - secret.yaml
 - ingress.yaml
 - peteq-command-service.yaml
+- peteq-event-handler-service.yaml
+- peteq-query-service.yaml
+- peteq-rest-api-service.yaml

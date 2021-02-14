@@ -16,18 +16,24 @@ configMapGenerator:
   envs:
   - env
 patches:
-  - path: patch-mapping-api.yaml
-    target:
+  - target:
       group: getambassador.io
       kind: Mapping
       version: v2
-      name: peteq-api
-  - path: patch-mapping-api.yaml
-    target:
+      name: peteq-rest-api-service
+    patch: |
+      - op: replace
+        path: "/spec/service"
+        value: local-peteq-rest-api-service
+  - target:
       group: getambassador.io
       kind: Mapping
       version: v2
       name: peteq-api-query
+    patch: |
+      - op: replace
+        path: "/spec/service"
+        value: local-peteq-query-service
   - target:
       group: getambassador.io
       kind: Mapping
@@ -55,4 +61,16 @@ patchesJson6902:
       group: apps
       version: v1
       kind: Deployment
-      name: peteq-api
+      name: peteq-query-service
+  - path: patch-rabbitmq-envs.yaml
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: peteq-rest-api-service
+  - path: patch-rabbitmq-envs.yaml
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: peteq-event-handler-service
