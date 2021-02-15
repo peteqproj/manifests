@@ -12,7 +12,7 @@ spec:
 apiVersion: getambassador.io/v2
 kind: Mapping
 metadata:
-  name: peteq-api
+  name: peteq-rest-api
 spec:
   prefix: /api/.*
   rewrite: ""
