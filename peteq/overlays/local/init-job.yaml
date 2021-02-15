@@ -65,4 +65,4 @@ spec:
       containers:
       - image: alpine
         name: exit-0
-      restartPolicy: OnFailure
+      restartPolicy: Never
