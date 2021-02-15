@@ -9,6 +9,11 @@ spec:
         - name: script
           emptyDir: {}
       initContainers:
+        - name: wait-for-ready
+          imagePullPolicy: Always
+          image: bitnami/kubectl:1.20
+          command:
+          - while [[ $(kubectl get pods -l app=peteq-command-service -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "waiting for pod" && sleep 1; done
         - name: create-script
           image: alpine
           imagePullPolicy: Always
