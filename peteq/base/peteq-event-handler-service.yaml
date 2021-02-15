@@ -49,6 +49,13 @@ spec:
             configMapKeyRef:
               key: postgres_url
               name: configmap
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
         resources:
           limits:
             memory: "128Mi"
