@@ -20,7 +20,7 @@ patches:
       group: getambassador.io
       kind: Mapping
       version: v2
-      name: peteq-rest-api-service
+      name: peteq-rest-api
     patch: |
       - op: replace
         path: "/spec/service"
