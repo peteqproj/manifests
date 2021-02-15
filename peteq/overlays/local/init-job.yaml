@@ -16,6 +16,7 @@ spec:
             - "kubectl"
           args:
             - "wait"
+            - "pod"
             - "-l"
             - "app=peteq-command-service"
             - "--for"
