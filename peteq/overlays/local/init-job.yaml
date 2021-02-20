@@ -19,6 +19,8 @@ spec:
             - "pod"
             - "-l"
             - "app=peteq-command-service"
+            - "--wait"
+            - "120s"
             - "--for"
             - "condition=ready"
         - name: create-script
