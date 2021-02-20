@@ -19,7 +19,7 @@ spec:
             - "pod"
             - "-l"
             - "app=peteq-command-service"
-            - "--wait"
+            - "--timeout"
             - "120s"
             - "--for"
             - "condition=ready"
