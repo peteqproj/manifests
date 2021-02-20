@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ambassador
+  namespace: argocd
+spec:
+  destination:
+    namespace: ambassador 
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ambassador
+    repoURL: https://github.com/peteqproj/manifests
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
