@@ -61,7 +61,7 @@ spec:
           imagePullPolicy: Always
           env:
           - name: URL
-            value: "http://ambassador.ambassador.svc.cluster.local"
+            value: "https://ambassador.ambassador.svc.cluster.local"
       containers:
       - image: alpine
         name: exit-0
