@@ -11,66 +11,70 @@ resources:
 - rabbitmq-instance.yaml
 - ../../base
 configMapGenerator:
-- name: configmap
-  behavior: merge
+- behavior: merge
   envs:
   - env
+  name: configmap
+images:
+- name: peteqproj/peteq
+  newName: peteqproj/peteq
+  newTag: 0.5.0
 patches:
-  - target:
-      group: getambassador.io
-      kind: Mapping
-      version: v2
-      name: peteq-rest-api
-    patch: |
-      - op: replace
-        path: "/spec/service"
-        value: local-peteq-rest-api-service
-  - target:
-      group: getambassador.io
-      kind: Mapping
-      version: v2
-      name: peteq-api-query
-    patch: |
-      - op: replace
-        path: "/spec/service"
-        value: local-peteq-query-service
-  - target:
-      group: getambassador.io
-      kind: Mapping
-      version: v2
-      name: peteq-api-command
-    patch: |
-      - op: replace
-        path: "/spec/service"
-        value: local-peteq-command-service
-  - path: patch-mapping-ui.yaml
-    target:
-      group: getambassador.io
-      kind: Mapping
-      version: v2
-      name: peteq-ui
+- patch: |
+    - op: replace
+      path: "/spec/service"
+      value: local-peteq-rest-api-service
+  target:
+    group: getambassador.io
+    kind: Mapping
+    name: peteq-rest-api
+    version: v2
+- patch: |
+    - op: replace
+      path: "/spec/service"
+      value: local-peteq-query-service
+  target:
+    group: getambassador.io
+    kind: Mapping
+    name: peteq-api-query
+    version: v2
+- patch: |
+    - op: replace
+      path: "/spec/service"
+      value: local-peteq-command-service
+  target:
+    group: getambassador.io
+    kind: Mapping
+    name: peteq-api-command
+    version: v2
+- path: patch-mapping-ui.yaml
+  target:
+    group: getambassador.io
+    kind: Mapping
+    name: peteq-ui
+    version: v2
 patchesJson6902:
-  - path: patch-rabbitmq-envs.yaml
-    target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: peteq-command-service
-  - path: patch-rabbitmq-envs.yaml
-    target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: peteq-query-service
-  - path: patch-rabbitmq-envs.yaml
-    target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: peteq-rest-api-service
-  - path: patch-rabbitmq-envs.yaml
-    target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: peteq-event-handler-service
+- path: patch-rabbitmq-envs.yaml
+  target:
+    group: apps
+    kind: Deployment
+    name: peteq-command-service
+    version: v1
+- path: patch-rabbitmq-envs.yaml
+  target:
+    group: apps
+    kind: Deployment
+    name: peteq-query-service
+    version: v1
+- path: patch-rabbitmq-envs.yaml
+  target:
+    group: apps
+    kind: Deployment
+    name: peteq-rest-api-service
+    version: v1
+- path: patch-rabbitmq-envs.yaml
+  target:
+    group: apps
+    kind: Deployment
+    name: peteq-event-handler-service
+    version: v1
