@@ -7,3 +7,4 @@ resources:
 - peteq-event-handler-service.yaml
 - peteq-query-service.yaml
 - peteq-rest-api-service.yaml
+- peteq-cron-service.yaml

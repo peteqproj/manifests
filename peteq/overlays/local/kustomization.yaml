@@ -18,7 +18,7 @@ configMapGenerator:
 images:
 - name: peteqproj/peteq
   newName: peteqproj/peteq
-  newTag: 0.6.0
+  newTag: 0.7.0
 patches:
 - patch: |
     - op: replace
