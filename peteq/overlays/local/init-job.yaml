@@ -34,19 +34,6 @@ spec:
             - "-c"
             - >
               echo -e "
-              DELETE FROM view_backlog;\n
-              DELETE FROM view_home;\n
-              DELETE FROM view_project;\n
-              DELETE FROM view_projects;\n
-              DELETE FROM view_triggers;\n
-              DELETE FROM repo_users;\n
-              DELETE FROM repo_lists;\n
-              DELETE FROM repo_projects;\n
-              DELETE FROM repo_tasks;\n
-              DELETE FROM repo_triggers;\n
-              DELETE FROM repo_trigger_bindings;\n
-              DELETE FROM repo_automations;\n
-              DELETE from event_log;\n
               CREATE TABLE IF NOT EXISTS view_backlog (userid text not null PRIMARY KEY, info json NOT NULL);\n
               CREATE TABLE IF NOT EXISTS view_home (userid text not null PRIMARY KEY, info json NOT NULL);\n
               CREATE TABLE IF NOT EXISTS view_projects (userid text not null PRIMARY KEY, info json NOT NULL);\n
@@ -59,7 +46,20 @@ spec:
               CREATE TABLE IF NOT EXISTS repo_triggers (userid text not null, triggerid text not null PRIMARY KEY, info json NOT NULL);\n
               CREATE TABLE IF NOT EXISTS repo_automations (userid text not null, automationid text not null PRIMARY KEY, info json NOT NULL);\n
               CREATE TABLE IF NOT EXISTS repo_trigger_bindings (userid text not null, tbid text not null, triggerid text not null PRIMARY KEY, info json NOT NULL);\n
-              CREATE TABLE IF NOT EXISTS event_log (eventid text not null PRIMARY KEY, eventname text not null, userid text not null, info json NOT NULL);" > /init/script
+              CREATE TABLE IF NOT EXISTS event_log (eventid text not null PRIMARY KEY, eventname text not null, userid text not null, info json NOT NULL);\n
+              DELETE FROM view_backlog;\n
+              DELETE FROM view_home;\n
+              DELETE FROM view_project;\n
+              DELETE FROM view_projects;\n
+              DELETE FROM view_triggers;\n
+              DELETE FROM repo_users;\n
+              DELETE FROM repo_lists;\n
+              DELETE FROM repo_projects;\n
+              DELETE FROM repo_tasks;\n
+              DELETE FROM repo_triggers;\n
+              DELETE FROM repo_trigger_bindings;\n
+              DELETE FROM repo_automations;\n
+              DELETE FROM event_log;" > /init/script
         - name: run-init
           image: peteqproj/usql
           imagePullPolicy: Always
