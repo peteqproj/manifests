@@ -19,6 +19,9 @@ images:
 - name: peteqproj/peteq
   newName: peteqproj/peteq
   newTag: 0.10.0
+- name: peteqproj/ui
+  newName: peteqproj/ui
+  newTag: 0.2.0
 patches:
 - patch: |
     - op: replace
