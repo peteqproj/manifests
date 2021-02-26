@@ -7,7 +7,7 @@ spec:
     app: peteq-ui
   ports:
   - port: 80
-    targetPort: 80
+    targetPort: 3030
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -31,6 +31,6 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 80
+        - containerPort: 3030
           name: web
 
